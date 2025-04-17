@@ -7,29 +7,49 @@
   color-scheme: dark light;
   font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 500;
-  color: var(--text);
+  color: var(--text-400);
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
-    --base: #0f1214;
-    --text: #cfcfcf;
+  --primary-500: #3A9CFD;
+  --text-500: #fff;
+  --text-400: #B6BEC9;
+  --background-500: #121217;
 }
 :root[data-theme="light"] {
   color-scheme: light;
-  --base: #cfcfcf;
-  --text: #212121;
+  --primary-500: #0263C5;
+  --text-500: #000000;
+  --text-400: #363E49;
+  --background-500: #E8E8ED;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Font families */
 .font-title {
   font-family: 'General Sans', sans-serif;
   font-weight: 700;
-  color: var(--text);
+  color: var(--text-500);
 }
 .font-text {
   font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 500;
-  color: var(--text);
+  color: var(--text-400);
+}
+
+/* Text colors */
+.text-primary {
+  color: var(--primary-500);
+}
+.text-500 {
+  color: var(--text-500);
+}
+.text-400 {
+  color: var(--text-400);
 }
 
 /* Font sizes */

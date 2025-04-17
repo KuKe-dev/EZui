@@ -12,9 +12,6 @@ export default function App() {
 
   return (
     <>
-    <h1 className="font-title">Tittle</h1>
-    <p className="font-text">Parrafo donde digo cosas</p>
-    <div>Parra</div>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
