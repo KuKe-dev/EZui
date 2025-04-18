@@ -73,6 +73,8 @@ h6 {
 }
 p {
   font-size: 1rem;
+  text-indent: .8rem;
+  line-height: 1.7rem;
 }
 small {
   font-size: 0.833rem;

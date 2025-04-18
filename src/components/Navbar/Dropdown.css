@@ -1,0 +1,22 @@
+.dropdown-button {
+    cursor: pointer;
+}
+.dropdown-button:hover {
+    color: var(--primary-500);
+}
+.dropdown.open {
+    height: 100%;
+    overflow: hidden;
+    transition: height .2s ease-in-out;
+}
+
+.dropdown {
+    margin-top: 15px;
+    text-indent: 20px;
+    height: 0px;
+    overflow: hidden;
+    transition: height .2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
