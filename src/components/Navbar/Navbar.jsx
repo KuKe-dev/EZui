@@ -19,7 +19,7 @@ return (
                 text="All Components"
                 open
                 childrens={[
-                    <a className='item' href='/about'>Component 1</a>,
+                    <a className='item' href='/component1'>Component 1</a>,
                 ]}
             />
         </ul>

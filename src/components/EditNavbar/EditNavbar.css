@@ -1,0 +1,14 @@
+.editNavbar {
+    display: inline-flex;
+    width: 600px;
+    height: calc(100vh - 80px);
+    flex-direction: column;
+    justify-content: start;
+    gap: 20px;
+    align-content: center;
+    overflow: scroll;
+    overflow-x: hidden;
+    align-items: flex-start;
+    padding: 20px 40px;
+    /* border-right: 1px solid var(--text-500); */
+}

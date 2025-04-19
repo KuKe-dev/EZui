@@ -3,6 +3,7 @@
     height: calc(100vh);
     padding: 60px 400px;
     overflow-y: scroll;
+    overflow-x: hidden;
     box-sizing: border-box;
     width: 100%;
 }

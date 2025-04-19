@@ -15,6 +15,11 @@
   --text-500: #fff;
   --text-400: #B6BEC9;
   --background-500: #121217;
+
+  --primary-500-c: 58, 156, 253;
+  --text-500-c: 255, 255, 255;
+  --text-400-c: 182, 190, 201;
+  --background-500-c: 18, 18, 23;
 }
 :root[data-theme="light"] {
   color-scheme: light;
@@ -22,6 +27,11 @@
   --text-500: #000000;
   --text-400: #363E49;
   --background-500: #E8E8ED;
+
+  --primary-500-c: 2, 99, 197;
+  --text-500-c: 0, 0, 0;
+  --text-400-c: 54, 62, 73;
+  --background-500-c: 232, 232, 237;
 }
 * {
   margin: 0;
