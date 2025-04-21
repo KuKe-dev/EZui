@@ -6,37 +6,67 @@ export default function Button(props) {
     const [hover, setHover] = useState(false);
     const [active, setActive] = useState(false);
 
-    const [text, setText] = useState(props.text ? props.text : "Button");
-    const [width, setWidth] = useState(props.width ? props.width : '100px');
-    const [height, setHeight] = useState(props.height ? props.height : '50px');
-    const [backgroundColor, setBackgroundColor] = useState(props.backgroundColor ? props.backgroundColor : 'var(--primary-500)');
-    const [color, setColor] = useState(props.color ? props.color : 'var(--text-500)');
-    const [border, setBorder] = useState(props.border ? props.border : 'none');
-    const [borderRadius, setBorderRadius] = useState(props.borderRadius ? props.borderRadius : '5px');
+    const defaultStyles = {
+        text: 'Button',
+        width: "100px",
+        height: '50px',
+        backgroundColor: "#3A9CFD",
+        color: {
+            normal: "var(--text-500)",
+            hover: "var(--primary-500)",
+            active: "var(--text-500)"
+        },
+        border: 'none',
+        borderRadius: '5px'
+    }
 
+    //* Set Values
+    const [text, setText] = useState(props.text ? props.text : defaultStyles.text);
     
+    const [width, setWidth] = useState(props.width ? props.width : defaultStyles.width);
+    const [height, setHeight] = useState(props.height ? props.height : defaultStyles.height);
+    const [backgroundColor, setBackgroundColor] = useState(props.backgroundColor ? props.backgroundColor : defaultStyles.backgroundColor);
+    const [color, setColor] = useState(props.color ? props.color : defaultStyles.color);
+    const [border, setBorder] = useState(props.border ? props.border : defaultStyles.border);
+    const [borderRadius, setBorderRadius] = useState(props.borderRadius ? props.borderRadius : defaultStyles.borderRadius);
 
-
-
-    //* Set Initial Values Inputs
-    const UseSetInitialValues = (valueName, value) => useEffect(() => {
+    const UseInitialNumericValues = (valueName, value) => useEffect(() => {
         if (typeof value !== 'object') {
-            const widthInput = document.querySelector(`#${valueName}-input`);
-            const widthSlider = document.querySelector(`#${valueName}-slider`);
-            widthInput.value = Number(value.replace('px', ''))
-            widthSlider.value = Number(value.replace('px', ''))
+            const Input = document.querySelector(`#${valueName}-input`);
+            const Slider = document.querySelector(`#${valueName}-slider`);
+            Input.value = Number(value.replace('px', ''))
+            Slider.value = Number(value.replace('px', ''))
         } else {
-            const widthInput = document.querySelector(`#${valueName}-input`);
-            const widthSlider = document.querySelector(`#${valueName}-slider`);
-            widthInput.value = Number(value.normal.replace('px', ''))
-            widthSlider.value = Number(value.normal.replace('px', ''))
+            const Input = document.querySelector(`#${valueName}-input`);
+            const Slider = document.querySelector(`#${valueName}-slider`);
+            Input.value = Number(value.normal.replace('px', ''))
+            Slider.value = Number(value.normal.replace('px', ''))
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-    UseSetInitialValues("width", width);
-    UseSetInitialValues("height", height);
 
-    const UseUpdateInput = (inputName, setSome) => useEffect(() => {
+    const UseInitialColorValues = (valueName, value) => useEffect(() => {
+        if (typeof value !== 'object') {
+            const Input = document.querySelector(`#${valueName}-input`);
+            Input.value = value
+        } else {
+            const Input = document.querySelector(`#${valueName}-input`);
+            Input.value = value.normal;
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+    
+    //* Set Initial Numeric Values
+    UseInitialNumericValues("width", width);
+    UseInitialNumericValues("height", height);
+
+    UseInitialNumericValues("borderRadius", borderRadius);
+
+    UseInitialColorValues("backgroundColor", backgroundColor);
+
+
+
+    const UseUpdateNumericInput = (inputName, setSome) => useEffect(() => {
         const Input = document.querySelector(`#${inputName} #${inputName}-input`);
         const Slider = document.querySelector(`#${inputName} #${inputName}-slider`);
         Input.addEventListener('input', () => {
@@ -50,8 +80,33 @@ export default function Button(props) {
         })
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-    UseUpdateInput('width', setWidth);
-    UseUpdateInput('height', setHeight);
+
+    const UseUpdateColorInput = (inputName, setSome) => useEffect(() => {
+        const Input = document.querySelector(`#${inputName} #${inputName}-input`);
+        const CheckBox = document.querySelector(`#${inputName} #${inputName}-checkbox`);
+        CheckBox.addEventListener('change', () => {
+            if (CheckBox.checked) {
+                setSome(Input.value);
+            } else {
+                setSome("transparent");
+            }
+        })
+        Input.addEventListener('input', () => {
+                    if (CheckBox.checked) {
+                        setSome(Input.value);
+                    } else {
+                        setSome("transparent");
+                    }
+            });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    UseUpdateNumericInput('width', setWidth);
+    UseUpdateNumericInput('height', setHeight);
+
+    UseUpdateNumericInput('borderRadius', setBorderRadius); 
+
+    UseUpdateColorInput('backgroundColor', setBackgroundColor);
 
     function handleStateStyles(obj) {
         if (typeof obj === "object") {
@@ -63,7 +118,7 @@ export default function Button(props) {
 
     return (
         <>
-            <button style={{
+            <button id="button" style={{
                 width: handleStateStyles(width),
                 height: handleStateStyles(height),
                 backgroundColor: handleStateStyles(backgroundColor),

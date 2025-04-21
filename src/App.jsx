@@ -24,19 +24,6 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/component1" element={<ComponentView 
           component={<Button
-            text="Button"
-            width={"100px"}
-            height="50px"
-            backgroundColor={{
-              normal: "var(--primary-500)",
-              hover: "var(--text-500)",
-              active: "var(--primary-500)"}}
-            color={{
-              normal: "var(--text-500)",
-              hover: "var(--primary-500)",
-              active: "var(--text-500)"}}
-            border="none"
-            borderRadius="5px"
           />} />} />
         </Routes>
       </BrowserRouter>
