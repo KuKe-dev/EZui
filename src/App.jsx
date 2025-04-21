@@ -3,8 +3,6 @@ import {
   Routes,
   Route,
 } from "react-router";
-
-import { useState } from "react";
 import './App.css'
 
 import Home from './pages/others/Home'
@@ -22,9 +20,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/component1" element={<ComponentView 
-          component={<Button
-          />} />} />
+          <Route path="/component1" element={ < ComponentView component={ <Button/> } /> } />
         </Routes>
       </BrowserRouter>
     </>

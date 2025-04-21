@@ -4,7 +4,7 @@ import './ThemeSwitch.css'
 
 export default function ThemeSwitch() {
 
-    const [theme, setTheme] = useState(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    const [theme, setTheme] = useState(localStorage.getItem('theme')==='dark' ? 'dark' : localStorage.getItem('theme')===null ? window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light' : "light");
 
     useEffect(() => {
         
