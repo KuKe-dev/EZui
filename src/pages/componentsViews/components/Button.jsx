@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
 
 export default function Button(props) {
@@ -8,16 +7,18 @@ export default function Button(props) {
 
     const defaultStyles = {
         text: 'Button',
+        fontSize: '16px',
         width: "100px",
         height: '50px',
         backgroundColor: "#3A9CFD",
         color: "#ffffff",
-        border: '1px solid #ffffff',    
+        border: '1px none #ffffff',    
         borderRadius: '5px'
     }
 
     //* Set Values
     const [text, setText] = useState(props.text ? props.text : defaultStyles.text);
+    const [fontSize, setFontSize] = useState(props.fontSize ? props.fontSize : defaultStyles.fontSize);
     const [width, setWidth] = useState(props.width ? props.width : defaultStyles.width);
     const [height, setHeight] = useState(props.height ? props.height : defaultStyles.height);
     const [backgroundColor, setBackgroundColor] = useState(props.backgroundColor ? props.backgroundColor : defaultStyles.backgroundColor);
@@ -25,6 +26,16 @@ export default function Button(props) {
     const [border, setBorder] = useState(props.border ? props.border : defaultStyles.border);
     const [borderRadius, setBorderRadius] = useState(props.borderRadius ? props.borderRadius : defaultStyles.borderRadius);
 
+    const UseInitialTextValues = (valueName, textValue, colorValue, fontSizeValue) => useEffect(() => {
+        const Input = document.querySelector(`#${valueName}-input`);
+        const Color = document.querySelector(`#${valueName}-color`);
+        const FontSize = document.querySelector(`#${valueName}-fontSize`);
+        const Slider = document.querySelector(`#${valueName}-slider`);
+        Input.value = textValue;
+        Color.value = colorValue;
+        FontSize.value = Number(fontSizeValue.replace('px', ''));
+        Slider.value = Number(fontSizeValue.replace('px', ''));
+    })
     const UseInitialNumericValues = (valueName, value) => useEffect(() => {
         if (typeof value !== 'object') {
             const Input = document.querySelector(`#${valueName}-input`);
@@ -65,6 +76,26 @@ export default function Button(props) {
         }
     })
 
+    const UseUpdateTextInput = (inputName, setText, setColor, setFontSize) => useEffect(() => {
+        const Input = document.querySelector(`#${inputName} #${inputName}-input`);
+        const Color = document.querySelector(`#${inputName} #${inputName}-color`);
+        const FontSize = document.querySelector(`#${inputName} #${inputName}-fontSize`);
+        const Slider = document.querySelector(`#${inputName} #${inputName}-slider`);
+        Input.addEventListener('input', () => {
+            setText(Input.value);           
+        });
+        FontSize.addEventListener('input', () => {
+            setFontSize(`${FontSize.value}px`);     
+            Slider.value = FontSize.value;      
+        });
+        Slider.addEventListener('input', () => {
+            setFontSize(`${Slider.value}px`);
+            FontSize.value = Slider.value;
+        })
+        Color.addEventListener('input', () => {
+            setColor(Color.value);           
+        })
+    })
     const UseUpdateNumericInput = (inputName, setSome) => useEffect(() => {
         const Input = document.querySelector(`#${inputName} #${inputName}-input`);
         const Slider = document.querySelector(`#${inputName} #${inputName}-slider`);
@@ -121,25 +152,25 @@ export default function Button(props) {
     })
 
     //* Set Initial Values
+    UseInitialTextValues("text", text, color, fontSize);
+
     UseInitialNumericValues("width", width);
     UseInitialNumericValues("height", height);
 
     UseInitialNumericValues("borderRadius", borderRadius);
 
     UseInitialColorValues("backgroundColor", backgroundColor);
-    UseInitialColorValues("color", color);
 
     UseInitialBorderValues("border", border);
 
-    /* UseInitialBorderValues("border", border); */
-
     //* Update Values
+    UseUpdateTextInput('text', setText, setColor, setFontSize);
+
     UseUpdateNumericInput('width', setWidth);
     UseUpdateNumericInput('height', setHeight);
     UseUpdateNumericInput('borderRadius', setBorderRadius); 
 
     UseUpdateColorInput('backgroundColor', setBackgroundColor);
-    UseUpdateColorInput('color', setColor);
 
     UseUpdateBorderInput('border', setBorder);
 
@@ -154,6 +185,8 @@ export default function Button(props) {
     return (
         <>
             <button id="button" style={{
+                fontSize: handleStateStyles(fontSize),
+                textWrap: "nowrap",
                 width: handleStateStyles(width),
                 height: handleStateStyles(height),
                 backgroundColor: handleStateStyles(backgroundColor),
