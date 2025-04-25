@@ -1,0 +1,64 @@
+.NumericInput-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 20px 10px 0;
+    gap: 20px;
+}
+
+.NumericInput-number{
+    width: 60px;   
+    text-align: center;
+    padding: 6px 4px;
+    text-align: center;
+    background-color: var(--background-400);
+    border: 2px solid rgb(var(--text-500-c), 0.1);
+    border-radius: 8px;
+}
+.NumericInput-number::placeholder {
+    color: var(--text-400);
+}
+
+.NumericInput-number:hover {
+    border-color: rgb(var(--primary-500-c), 0.7);
+}
+
+.NumericInput-number:focus {
+    border-color: var(--primary-500);
+    outline: none;
+    box-shadow: 0 0 8px var(--primary-500);
+}
+
+.NumericInput-number::-webkit-outer-spin-button,
+.NumericInput-number::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.NumericInput-range{
+    width: 100%;
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    height: 8px;
+    background: var(--background-400); /* Grey background */
+    opacity: 0.8;
+    border-radius: 10px;
+    transition: opacity .2s;
+}
+.NumericInput-range:hover{
+    opacity: 1;
+}
+
+.NumericInput-range::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 18px; /* Set a specific slider handle width */
+    aspect-ratio: 1/1;
+    background: var(--primary-500); /* Green background */
+    cursor: pointer; /* Cursor on hover */
+    border-radius: 50%;
+}
+
+.NumericInput-range::-webkit-slider-thumb:active {
+    box-shadow: 0 0 12px 8px rgb(var(--primary-500-c), 0.3);
+}

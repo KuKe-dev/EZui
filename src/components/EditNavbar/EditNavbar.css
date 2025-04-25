@@ -1,5 +1,5 @@
-.editNavbar {
-    display: inline-flex;
+.edit-navbar {
+    display: flex;
     width: 600px;
     height: calc(100vh - 80px);
     flex-direction: column;
@@ -9,6 +9,26 @@
     overflow: scroll;
     overflow-x: hidden;
     align-items: flex-start;
-    padding: 20px 40px;
+    padding: 20px 20px;
     /* border-right: 1px solid var(--text-500); */
+}
+
+.edit-navbar-items {
+    width: 100%;
+}
+
+.edit-navbar-label {
+    text-indent: 10px;
+    width: 100%;
+    color: var(--text-500);
+    padding: 5px 0;
+    border-bottom: 2px dashed rgb(var(--text-500-c), 0.1);
+}
+
+.edit-navbar-label:hover {
+    color: rgb(var(--primary-500-c), 0.8);
+}
+
+.edit-navbar-label:active {
+    color: var(--primary-500);
 }

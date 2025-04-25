@@ -1,6 +1,8 @@
 import Header from "../../components/Header/Header";
 import Navbar from "../../components/Navbar/Navbar";
 
+import CorporateMenphis from '../../assets/Corporate-menphis.png'
+
 import './Home.css'
 
 export default function Home() {
@@ -12,8 +14,10 @@ return (
             <Navbar/>
             <main className="main">
                 <h1 className="font-title">What is EZui?</h1>
+                <img src={CorporateMenphis} alt="Placeholder Image" style={{width: "70%", borderRadius: "10px", margin: "30px auto", display: "block", boxShadow: "0 4px 40px 10px rgb(var(--primary-500-c), 0.4)"}} />
                 <p className="font-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tempus ligula ac dui sodales maximus. Nullam tempus vestibulum efficitur. Vivamus viverra congue eleifend. Etiam consequat mi sed nulla suscipit, vitae dapibus est scelerisque. Curabitur pretium eros sed mauris cursus, eu porttitor nunc consectetur. Ut eget condimentum sem. Sed fringilla commodo lacus, ac pulvinar nulla tristique et. Maecenas tincidunt eu justo eu ullamcorper. Integer rutrum augue vitae ipsum rutrum, sit amet sodales dolor molestie. Fusce non maximus tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor dui fermentum porttitor rutrum.
                 <br/>Ut eget erat sed lectus finibus accumsan. Nullam eu condimentum nibh. Aenean aliquam eu ex sed sodales. Integer vel nisl justo. Curabitur ultrices quis lacus sagittis blandit. Donec dictum, mi non lobortis tincidunt, nisl dolor rutrum mauris, non elementum nibh neque ut lectus. Nulla suscipit dui vel neque porttitor auctor. Maecenas vulputate ipsum neque, nec ullamcorper dolor iaculis nec.
+                
                 <br/>Nullam eget magna in velit dictum auctor. Morbi scelerisque diam non elit rhoncus, sit amet ultrices augue interdum. Pellentesque vulputate fermentum ipsum, in sagittis libero. Praesent pharetra lacus quis finibus hendrerit. Nulla gravida ullamcorper enim, fermentum eleifend massa fringilla in. Vestibulum nec neque nulla. Vestibulum nibh nibh, accumsan ac fermentum sed, euismod non metus. Nam euismod massa vel risus hendrerit, a tincidunt tortor rutrum. Nunc vestibulum sed lectus et tempus. Quisque ex neque, sagittis ac porttitor ac, eleifend vel elit. Pellentesque pulvinar sem ut egestas porta. Maecenas non massa lobortis, ultrices justo in, blandit tellus. In vel tincidunt urna. Sed condimentum ipsum nisi, ut porttitor enim tincidunt eget. Curabitur rhoncus fringilla libero. Morbi ac tristique turpis, in maximus dui.
                 <br/>Morbi eget egestas nunc. Sed feugiat justo nunc, vitae luctus nunc dictum eu. Nunc felis nisi, dignissim ut ornare et, laoreet a nulla. Maecenas semper risus ac felis aliquet tincidunt. Nunc lorem metus, hendrerit a leo ac, imperdiet suscipit eros. Maecenas ac dictum est, nec imperdiet diam. Sed quis elementum ligula, eu feugiat nibh. Aenean non justo pulvinar, molestie neque nec, aliquam ipsum. Nullam ut neque leo. Proin porttitor, mauris quis accumsan gravida, est sapien varius dolor, sit amet venenatis nunc est eget sem. Aenean imperdiet iaculis commodo. Nunc quis ipsum augue. Vestibulum lobortis quis erat eu tincidunt.
                 <br/>Vivamus vitae magna neque. Sed rhoncus, felis sit amet ornare molestie, eros risus aliquet leo, tempus fermentum leo mauris sit amet ipsum. Aliquam pulvinar velit vitae mi mollis suscipit. Vivamus commodo nisl vitae dignissim lobortis. Aliquam tempus tellus non sem mattis volutpat. Donec orci elit, lacinia at ullamcorper faucibus, sollicitudin sit amet justo. Nullam tincidunt nisi quis lacus posuere dictum.

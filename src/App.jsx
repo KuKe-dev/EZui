@@ -10,8 +10,6 @@ import About from './pages/others/About'
 import ComponentView from "./pages/componentsViews/ComponentView";
 import Button from "./pages/componentsViews/components/Button";
 
-
-
 export default function App() {
   
   return (
@@ -20,7 +18,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/component1" element={ < ComponentView component={ <Button/> } /> } />
+          <Route path="/component1" element={ < ComponentView component={ Button } />}
+          />
         </Routes>
       </BrowserRouter>
     </>
